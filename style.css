@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000000;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.navbar {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+.navbar li a:hover {
+    color: #ff5555;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    color: #ff5555;
+}
+
+input, button {
+    margin: 5px 0;
+    padding: 10px;
+}
+
+footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

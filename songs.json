@@ -1,5 +1,4 @@
-[
-    {
+[    {
         "id": 1,
         "title": "666",
         "game_id": 1,
@@ -239,7 +238,6 @@
         "game_id": 40,
         "song_level": 21
     },
-
     {
         "id": 41,
         "title": "The Surgeon",
