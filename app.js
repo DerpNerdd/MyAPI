@@ -75,6 +75,20 @@ app.get('/api/songs/:id', (req, res) => {
     res.json(song);
 });
 
+app.get('/api/:id', (req, res) => {
+    const { id } = req.params;    
+    const game = rhythmGames.find(game => game.id === Number(id));
+    const song = songs.find(song => song.id === Number(id));
+
+    if (!game && !song) {
+        return res.status(404).json({ message: "No rhythm game or song found with this ID" });
+    }
+    
+    res.json({
+        game: game || null,  
+        song: song || null   
+    });
+});
 
 app.get('/api/rhythmgames/add/:name/:company/:token', (req, res) => {
     const { name, company, token } = req.params;
