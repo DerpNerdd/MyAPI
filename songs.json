@@ -1,4 +1,5 @@
-[    {
+[
+    {
         "id": 1,
         "title": "666",
         "game_id": 1,
@@ -297,5 +298,11 @@
         "title": "Taiko Drum Master",
         "game_id": 50,
         "song_level": 15
+    },
+    {
+        "id": 51,
+        "title": "Arrow",
+        "game_id": 20,
+        "song_level": 8
     }
 ]

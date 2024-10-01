@@ -3,30 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm Game Database</title>
+    <title>Rhythm Games API Documentation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="rhythm-games.html">Rhythm Games</a></li>
-                <li><a href="songs.html">Songs</a></li>
-                <li><a href="admin.html">Admin</a></li>
-            </ul>
-        </nav>
+        <h1>Rhythm Games API Documentation</h1>
+        <p>Your guide to using the Rhythm Games and Songs API.</p>
     </header>
 
     <main>
         <section>
-            <h1>Welcome to the Rhythm Game Database</h1>
-            <p>Explore a collection of rhythm games and songs from different genres and companies. Use the navigation bar to view the lists of games, songs, or to access the admin section.</p>
+            <h2>Introduction</h2>
+            <p>Welcome to the Rhythm Games API! This API allows you to access a collection of rhythm games and their associated songs. You can retrieve lists of games, search for specific games or songs, and even manage the database using our admin endpoints. Below is a comprehensive guide to all available API endpoints.</p>
+        </section>
+
+        <section>
+            <h2>Base URL</h2>
+            <p>All requests should be made to the following base URL:</p>
+            <code>http://localhost:3000/api</code>
+        </section>
+
+        <section>
+            <h2>Endpoints</h2>
+
+            
+            <div class="endpoint">
+                <h3>1. Get All Rhythm Games</h3>
+                <p>Retrieve a list of all rhythm games in the database.</p>
+                <p><strong>Endpoint:</strong> <code>GET /rhythmgames</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>GET http://localhost:3000/api/rhythmgames</code>
+                </div>
+                <p><strong>Optional Query Parameters:</strong></p>
+                <ul>
+                    <li><code>search</code>: Search games by name (e.g., <code>?search=Sound</code>)</li>
+                    <li><code>limit</code>: Limit the number of results (e.g., <code>?limit=10</code>)</li>
+                </ul>
+            </div>
+
+            
+            <div class="endpoint">
+                <h3>2. Get a Single Rhythm Game</h3>
+                <p>Retrieve details of a specific rhythm game by its ID.</p>
+                <p><strong>Endpoint:</strong> <code>GET /rhythmgames/:id</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>GET http://localhost:3000/api/rhythmgames/1</code>
+                </div>
+            </div>
+
+            
+            <div class="endpoint">
+                <h3>3. Get All Songs</h3>
+                <p>Retrieve a list of all songs in the database.</p>
+                <p><strong>Endpoint:</strong> <code>GET /songs</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>GET http://localhost:3000/api/songs</code>
+                </div>
+                <p><strong>Optional Query Parameters:</strong></p>
+                <ul>
+                    <li><code>search</code>: Search songs by title (e.g., <code>?search=ALBIDA</code>)</li>
+                    <li><code>limit</code>: Limit the number of results (e.g., <code>?limit=5</code>)</li>
+                </ul>
+            </div>
+
+            
+            <div class="endpoint">
+                <h3>4. Get a Single Song</h3>
+                <p>Retrieve details of a specific song by its ID.</p>
+                <p><strong>Endpoint:</strong> <code>GET /songs/:id</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>GET http://localhost:3000/api/songs/1</code>
+                </div>
+            </div>
+            <h2>Admin Endpoints</h2>
+            <p>To perform admin actions (adding, editing, or deleting rhythm games and songs), you need to include the admin token in the URL. The token is used to authenticate admin requests.</p>
+            
+            <p><strong>Admin Token:</strong> <code>admin123</code></p>
+            
+            
+            <div class="endpoint">
+                <h3>5. Add a New Rhythm Game</h3>
+                <p><strong>Description:</strong> Add a new rhythm game to the database by specifying the game name, company, and admin token directly in the URL.</p>
+                <p><strong>Endpoint:</strong> <code>GET /api/rhythmgames/add/:name/:company/:token</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>http://localhost:3000/api/rhythmgames/add/GameName/Company/admin123</code>
+                </div>
+            </div>
+            
+            
+            <div class="endpoint">
+                <h3>6. Add a New Song</h3>
+                <p><strong>Description:</strong> Add a new song to the database by specifying the song title, associated game ID, song level, and admin token directly in the URL.</p>
+                <p><strong>Endpoint:</strong> <code>GET /api/songs/add/:title/:game_id/:song_level/:token</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>http://localhost:3000/api/songs/add/SongTitle/1/20/admin123</code>
+                </div>
+            </div>
+            
+            
+            <div class="endpoint">
+                <h3>7. Update a Rhythm Game</h3>
+                <p><strong>Description:</strong> Update an existing rhythm game by its ID, providing the new name, new company, and admin token directly in the URL.</p>
+                <p><strong>Endpoint:</strong> <code>GET /api/rhythmgames/:id/update/:name/:company/:token</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>http://localhost:3000/api/rhythmgames/1/update/NewGameName/NewCompany/admin123</code>
+                </div>
+            </div>
+            
+            
+            <div class="endpoint">
+                <h3>8. Update a Song</h3>
+                <p><strong>Description:</strong> Update an existing song by its ID, providing the new song title, new game ID, new song level, and admin token directly in the URL.</p>
+                <p><strong>Endpoint:</strong> <code>GET /api/songs/:id/update/:title/:game_id/:song_level/:token</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>http://localhost:3000/api/songs/1/update/NewSongTitle/1/22/admin123</code>
+                </div>
+            </div>
+            
+            
+            <div class="endpoint">
+                <h3>9. Delete a Rhythm Game</h3>
+                <p><strong>Description:</strong> Delete a rhythm game from the database by its ID, using the admin token directly in the URL.</p>
+                <p><strong>Endpoint:</strong> <code>GET /api/rhythmgames/:id/delete/:token</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>http://localhost:3000/api/rhythmgames/1/delete/admin123</code>
+                </div>
+            </div>
+            
+            
+            <div class="endpoint">
+                <h3>10. Delete a Song</h3>
+                <p><strong>Description:</strong> Delete a song from the database by its ID, using the admin token directly in the URL.</p>
+                <p><strong>Endpoint:</strong> <code>GET /api/songs/:id/delete/:token</code></p>
+                <p><strong>Example Request:</strong></p>
+                <div class="example">
+                    <code>http://localhost:3000/api/songs/1/delete/admin123</code>
+                </div>
+            </div>            
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Rhythm Game Database. All rights reserved.</p>
+        <p>&copy; 2024 Rhythm Games API. All rights reserved.</p>
     </footer>
 </body>
 </html>
