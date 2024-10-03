@@ -4,7 +4,7 @@
   "description": "Rhythm Games & Songs",
   "main": "index.js",
   "scripts": {
-    "start": "nope app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
